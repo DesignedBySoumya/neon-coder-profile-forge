@@ -7,13 +7,12 @@ export const ContributionHeatmap = () => {
     const contributions = [];
     const today = new Date();
     const startDate = new Date(today);
-    startDate.setDate(startDate.getDate() - 364); // Go back 364 days to get 365 total
+    startDate.setDate(startDate.getDate() - 364);
     
     for (let i = 0; i < 365; i++) {
       const date = new Date(startDate);
       date.setDate(date.getDate() + i);
       
-      // Create more realistic contribution patterns
       const dayOfWeek = date.getDay();
       const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
       const baseActivity = isWeekend ? 0.3 : 0.7;
@@ -21,7 +20,7 @@ export const ContributionHeatmap = () => {
       
       let count = 0;
       if (randomFactor < baseActivity) {
-        count = Math.floor(Math.random() * 8) + 1; // 1-8 contributions
+        count = Math.floor(Math.random() * 8) + 1;
       }
       
       contributions.push({
@@ -36,11 +35,11 @@ export const ContributionHeatmap = () => {
   const contributions = generateContributions();
   
   const getIntensity = (count: number) => {
-    if (count === 0) return 'bg-[#1A1A1A] border border-gray-800';
-    if (count <= 2) return 'bg-[#0D4A2F] border border-[#0D4A2F]';
-    if (count <= 4) return 'bg-[#1A6B47] border border-[#1A6B47]';
+    if (count === 0) return 'bg-[#16181D] border border-gray-800';
+    if (count <= 2) return 'bg-[#003D2F] border border-[#003D2F]';
+    if (count <= 4) return 'bg-[#006B47] border border-[#006B47]';
     if (count <= 6) return 'bg-[#26A65B] border border-[#26A65B]';
-    return 'bg-[#00FFA3] border border-[#00FFA3] shadow-sm shadow-[#00FFA3]/30';
+    return 'bg-[#00FFCB] border border-[#00FFCB] shadow-sm shadow-[#00FFCB]/30';
   };
 
   const getTooltipText = (contribution: any) => {
@@ -67,18 +66,18 @@ export const ContributionHeatmap = () => {
   const dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
   return (
-    <div className="bg-[#1A1A1A] rounded-xl p-6 border border-gray-800">
+    <div className="bg-[#16181D] rounded-xl p-6 border border-gray-800">
       <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
         <span>📅</span>
         Contribution Activity
       </h3>
       
-      {/* Responsive container */}
-      <div className="overflow-x-auto">
+      {/* Fixed height scrollable container */}
+      <div className="grid-contributions overflow-x-auto max-h-[120px]">
         <div className="min-w-[800px]">
           {/* Month labels */}
           <div className="flex mb-2 text-xs text-[#A0A0A0]">
-            <div className="w-8"></div> {/* Space for day labels */}
+            <div className="w-8"></div>
             {monthLabels.map((month, index) => (
               <div key={month} className="flex-1 text-center">
                 {month}
@@ -104,7 +103,7 @@ export const ContributionHeatmap = () => {
                   {week.map((contribution, dayIndex) => (
                     <div
                       key={`${weekIndex}-${dayIndex}`}
-                      className={`w-3 h-3 rounded-sm ${getIntensity(contribution.count)} hover:ring-2 hover:ring-[#00FFA3]/50 transition-all duration-200 cursor-pointer group relative`}
+                      className={`w-3 h-3 rounded-sm ${getIntensity(contribution.count)} hover:ring-2 hover:ring-[#00FFCB]/50 transition-all duration-200 cursor-pointer group relative`}
                       title={getTooltipText(contribution)}
                     >
                       {/* Tooltip */}
@@ -130,11 +129,11 @@ export const ContributionHeatmap = () => {
         <div className="flex items-center gap-2 text-xs text-[#A0A0A0]">
           <span>Less</span>
           <div className="flex gap-1">
-            <div className="w-3 h-3 bg-[#1A1A1A] border border-gray-800 rounded-sm"></div>
-            <div className="w-3 h-3 bg-[#0D4A2F] rounded-sm"></div>
-            <div className="w-3 h-3 bg-[#1A6B47] rounded-sm"></div>
+            <div className="w-3 h-3 bg-[#16181D] border border-gray-800 rounded-sm"></div>
+            <div className="w-3 h-3 bg-[#003D2F] rounded-sm"></div>
+            <div className="w-3 h-3 bg-[#006B47] rounded-sm"></div>
             <div className="w-3 h-3 bg-[#26A65B] rounded-sm"></div>
-            <div className="w-3 h-3 bg-[#00FFA3] rounded-sm"></div>
+            <div className="w-3 h-3 bg-[#00FFCB] rounded-sm"></div>
           </div>
           <span>More</span>
         </div>

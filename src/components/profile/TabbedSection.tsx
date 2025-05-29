@@ -30,7 +30,7 @@ export const TabbedSection = () => {
   const [activeTab, setActiveTab] = useState('Overview');
 
   return (
-    <div className="bg-[#1A1A1A] rounded-xl border border-gray-800">
+    <div className="bg-[#16181D] rounded-xl border border-gray-800 overflow-hidden">
       {/* Tab Headers */}
       <div className="flex border-b border-gray-800">
         {tabs.map((tab) => (
@@ -39,23 +39,23 @@ export const TabbedSection = () => {
             onClick={() => setActiveTab(tab)}
             className={`flex-1 px-6 py-4 text-sm font-medium transition-all duration-300 relative ${
               activeTab === tab
-                ? 'text-[#00FFA3] border-b-2 border-[#00FFA3]'
+                ? 'text-[#00FFCB] border-b-2 border-[#00FFCB]'
                 : 'text-[#A0A0A0] hover:text-white'
             }`}
           >
             {tab}
             {activeTab === tab && (
-              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#00FFA3] to-[#4DFFDF] animate-pulse"></div>
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#00FFCB] to-[#29FFC6] animate-pulse"></div>
             )}
           </button>
         ))}
       </div>
       
-      {/* Tab Content */}
-      <div className="p-6">
+      {/* Tab Content - Scrollable */}
+      <div className="p-6 max-h-[400px] overflow-y-auto">
         <div className="space-y-4">
           {activeTab === 'Overview' && tabContent.Overview.map((item, index) => (
-            <div key={index} className="flex items-center gap-4 p-4 bg-[#0D0D0D] rounded-lg border border-gray-700 hover:border-[#00FFA3]/30 transition-all duration-300">
+            <div key={index} className="flex items-center gap-4 p-4 bg-[#0E0F11] rounded-lg border border-gray-700 hover:border-[#00FFCB]/30 transition-all duration-300">
               <div className="flex-1">
                 <h4 className="text-white font-medium">{item.title}</h4>
                 <p className="text-[#A0A0A0] text-sm">{item.time}</p>
@@ -70,18 +70,18 @@ export const TabbedSection = () => {
                 </span>
               )}
               {item.rank && (
-                <span className="text-[#00FFA3] font-bold">{item.rank}</span>
+                <span className="text-[#00FFCB] font-bold">{item.rank}</span>
               )}
             </div>
           ))}
           
           {activeTab === 'Solutions' && tabContent.Solutions.map((item, index) => (
-            <div key={index} className="flex items-center gap-4 p-4 bg-[#0D0D0D] rounded-lg border border-gray-700 hover:border-[#00FFA3]/30 transition-all duration-300">
+            <div key={index} className="flex items-center gap-4 p-4 bg-[#0E0F11] rounded-lg border border-gray-700 hover:border-[#00FFCB]/30 transition-all duration-300">
               <div className="flex-1">
                 <h4 className="text-white font-medium">{item.title}</h4>
                 <p className="text-[#A0A0A0] text-sm">{item.language} • {item.time}</p>
               </div>
-              <div className="flex items-center gap-2 text-[#00FFA3]">
+              <div className="flex items-center gap-2 text-[#00FFCB]">
                 <span>👍</span>
                 <span className="font-bold">{item.likes}</span>
               </div>
@@ -89,12 +89,12 @@ export const TabbedSection = () => {
           ))}
           
           {activeTab === 'Discussions' && tabContent.Discussions.map((item, index) => (
-            <div key={index} className="flex items-center gap-4 p-4 bg-[#0D0D0D] rounded-lg border border-gray-700 hover:border-[#00FFA3]/30 transition-all duration-300">
+            <div key={index} className="flex items-center gap-4 p-4 bg-[#0E0F11] rounded-lg border border-gray-700 hover:border-[#00FFCB]/30 transition-all duration-300">
               <div className="flex-1">
                 <h4 className="text-white font-medium">{item.title}</h4>
                 <p className="text-[#A0A0A0] text-sm">{item.time}</p>
               </div>
-              <div className="flex items-center gap-2 text-[#4DFFDF]">
+              <div className="flex items-center gap-2 text-[#29FFC6]">
                 <span>💬</span>
                 <span className="font-bold">{item.replies}</span>
               </div>
@@ -102,18 +102,18 @@ export const TabbedSection = () => {
           ))}
           
           {activeTab === 'Projects' && tabContent.Projects.map((item, index) => (
-            <div key={index} className="flex items-center gap-4 p-4 bg-[#0D0D0D] rounded-lg border border-gray-700 hover:border-[#00FFA3]/30 transition-all duration-300">
+            <div key={index} className="flex items-center gap-4 p-4 bg-[#0E0F11] rounded-lg border border-gray-700 hover:border-[#00FFCB]/30 transition-all duration-300">
               <div className="flex-1">
                 <h4 className="text-white font-medium">{item.title}</h4>
                 <p className="text-[#A0A0A0] text-sm">{item.tech}</p>
               </div>
               <div className="flex items-center gap-4">
-                <div className="flex items-center gap-1 text-[#FFD86F]">
+                <div className="flex items-center gap-1 text-[#FFE600]">
                   <span>⭐</span>
                   <span className="font-bold">{item.stars}</span>
                 </div>
                 <span className={`px-2 py-1 rounded text-xs font-bold ${
-                  item.status === 'Active' ? 'bg-[#00FFA3]/20 text-[#00FFA3]' :
+                  item.status === 'Active' ? 'bg-[#00FFCB]/20 text-[#00FFCB]' :
                   item.status === 'Completed' ? 'bg-blue-500/20 text-blue-400' :
                   'bg-orange-500/20 text-orange-400'
                 }`}>

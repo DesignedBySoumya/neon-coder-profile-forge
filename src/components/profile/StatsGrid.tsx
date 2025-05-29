@@ -11,18 +11,18 @@ interface StatCardProps {
 
 const StatCard = ({ icon, value, label, badge, trend }: StatCardProps) => {
   return (
-    <div className="group bg-[#1A1A1A] rounded-xl p-4 border border-gray-800 hover:border-[#00FFA3]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#00FFA3]/20 hover:scale-105 cursor-pointer">
+    <div className="group bg-[#16181D] rounded-xl p-4 border border-gray-800 hover:border-[#00FFCB]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#00FFCB]/20 hover:scale-105 cursor-pointer">
       <div className="flex items-center gap-3 mb-2">
-        <div className="text-2xl text-[#00FFA3] group-hover:scale-110 transition-transform duration-300">
+        <div className="text-2xl text-[#00FFCB] group-hover:scale-110 transition-transform duration-300">
           {icon}
         </div>
         <div className="flex-1">
           <div className="flex items-center gap-2">
-            <span className="text-xl font-bold text-white group-hover:text-[#00FFA3] transition-colors duration-300">
+            <span className="text-xl font-bold text-white group-hover:text-[#00FFCB] transition-colors duration-300">
               {value}
             </span>
             {badge && (
-              <span className="bg-[#00FFA3] text-black text-xs font-bold px-2 py-0.5 rounded-full animate-pulse">
+              <span className="bg-[#00FFCB] text-black text-xs font-bold px-2 py-0.5 rounded-full animate-pulse">
                 {badge}
               </span>
             )}
@@ -31,7 +31,7 @@ const StatCard = ({ icon, value, label, badge, trend }: StatCardProps) => {
       </div>
       <p className="text-[#A0A0A0] text-xs">{label}</p>
       {trend && (
-        <p className="text-[#00FFA3] text-xs font-medium mt-1">{trend}</p>
+        <p className="text-[#00FFCB] text-xs font-medium mt-1">{trend}</p>
       )}
     </div>
   );

@@ -25,7 +25,6 @@ export const EditProfileModal = ({ isOpen, onClose }: EditProfileModalProps) => 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
     console.log('Profile updated:', formData);
     onClose();
   };
@@ -61,10 +60,10 @@ export const EditProfileModal = ({ isOpen, onClose }: EditProfileModalProps) => 
       />
       
       {/* Modal */}
-      <div className="relative bg-[#1A1A1A]/95 backdrop-blur-xl border border-[#00FFA3]/30 rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl shadow-[#00FFA3]/20 animate-fade-in">
+      <div className="relative bg-[#16181D]/95 backdrop-blur-xl border border-[#00FFCB]/30 rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl shadow-[#00FFCB]/20 animate-fade-in">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-[#00FFA3] to-[#4DFFDF] bg-clip-text text-transparent">
+          <h2 className="text-2xl font-bold bg-gradient-to-r from-[#00FFCB] to-[#29FFC6] bg-clip-text text-transparent">
             Edit Profile
           </h2>
           <button
@@ -80,8 +79,8 @@ export const EditProfileModal = ({ isOpen, onClose }: EditProfileModalProps) => 
           {/* Profile Picture */}
           <div className="flex flex-col items-center mb-6">
             <div className="relative mb-4">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#00FFA3] to-[#4DFFDF] p-1">
-                <div className="w-full h-full rounded-full bg-[#1A1A1A] flex items-center justify-center">
+              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#00FFCB] to-[#29FFC6] p-1">
+                <div className="w-full h-full rounded-full bg-[#16181D] flex items-center justify-center">
                   <img 
                     src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=200&h=200&fit=crop&crop=face" 
                     alt="Profile" 
@@ -92,7 +91,7 @@ export const EditProfileModal = ({ isOpen, onClose }: EditProfileModalProps) => 
             </div>
             <button
               type="button"
-              className="text-[#00FFA3] hover:text-[#4DFFDF] transition-colors duration-200 text-sm font-medium"
+              className="text-[#00FFCB] hover:text-[#29FFC6] transition-colors duration-200 text-sm font-medium"
             >
               Change Photo
             </button>
@@ -107,7 +106,7 @@ export const EditProfileModal = ({ isOpen, onClose }: EditProfileModalProps) => 
               type="text"
               value={formData.fullName}
               onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-              className="w-full bg-[#0D0D0D] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00FFA3] focus:outline-none transition-colors duration-200"
+              className="w-full bg-[#0E0F11] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00FFCB] focus:outline-none transition-colors duration-200"
             />
           </div>
           
@@ -120,7 +119,7 @@ export const EditProfileModal = ({ isOpen, onClose }: EditProfileModalProps) => 
               type="text"
               value={formData.username}
               onChange={(e) => setFormData({ ...formData, username: e.target.value })}
-              className="w-full bg-[#0D0D0D] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00FFA3] focus:outline-none transition-colors duration-200"
+              className="w-full bg-[#0E0F11] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00FFCB] focus:outline-none transition-colors duration-200"
             />
           </div>
           
@@ -133,7 +132,7 @@ export const EditProfileModal = ({ isOpen, onClose }: EditProfileModalProps) => 
               value={formData.bio}
               onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
               rows={3}
-              className="w-full bg-[#0D0D0D] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00FFA3] focus:outline-none transition-colors duration-200 resize-none"
+              className="w-full bg-[#0E0F11] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00FFCB] focus:outline-none transition-colors duration-200 resize-none"
               maxLength={200}
             />
             <p className="text-[#A0A0A0] text-xs mt-1">
@@ -149,10 +148,10 @@ export const EditProfileModal = ({ isOpen, onClose }: EditProfileModalProps) => 
             <select
               value={formData.status}
               onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-              className="w-full bg-[#0D0D0D] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00FFA3] focus:outline-none transition-colors duration-200"
+              className="w-full bg-[#0E0F11] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00FFCB] focus:outline-none transition-colors duration-200"
             >
               {statusOptions.map((status) => (
-                <option key={status} value={status} className="bg-[#0D0D0D]">
+                <option key={status} value={status} className="bg-[#0E0F11]">
                   {status}
                 </option>
               ))}
@@ -170,7 +169,7 @@ export const EditProfileModal = ({ isOpen, onClose }: EditProfileModalProps) => 
             </button>
             <button
               type="submit"
-              className="flex-1 bg-gradient-to-r from-[#00FFA3] to-[#4DFFDF] text-black py-3 rounded-lg font-medium hover:shadow-lg hover:shadow-[#00FFA3]/50 transition-all duration-200 hover:scale-105"
+              className="flex-1 bg-gradient-to-r from-[#00FFCB] to-[#29FFC6] text-black py-3 rounded-lg font-medium hover:shadow-lg hover:shadow-[#00FFCB]/50 transition-all duration-200 hover:scale-105"
             >
               Save Changes
             </button>
