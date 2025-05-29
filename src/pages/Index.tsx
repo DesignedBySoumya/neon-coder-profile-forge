@@ -8,43 +8,44 @@ import { AchievementsBadges } from '../components/profile/AchievementsBadges';
 import { SkillsLanguages } from '../components/profile/SkillsLanguages';
 import { ContributionHeatmap } from '../components/profile/ContributionHeatmap';
 import { CommunityStats } from '../components/profile/CommunityStats';
+import { EditProfileModal } from '../components/profile/EditProfileModal';
 
 const Index = () => {
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-[#0D0D0D] text-white font-sans">
       <div className="container mx-auto px-4 py-8 max-w-7xl">
-        {/* Profile Header */}
-        <ProfileHeader />
-        
-        {/* Stats Grid */}
-        <StatsGrid />
-        
-        {/* Level & XP Progress */}
-        <LevelProgress />
-        
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
-          {/* Main Content - Left & Center */}
-          <div className="lg:col-span-2 space-y-8">
-            {/* Tabbed Section */}
+        {/* Three Column Layout */}
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
+          
+          {/* Left Column - Identity & Quick Stats */}
+          <div className="xl:col-span-3 space-y-6">
+            <ProfileHeader onEditClick={() => setIsEditModalOpen(true)} />
+            <StatsGrid />
+            <LevelProgress />
+          </div>
+          
+          {/* Middle Column - Dynamic Content */}
+          <div className="xl:col-span-6 space-y-6">
             <TabbedSection />
-            
-            {/* Achievements & Badges */}
             <AchievementsBadges />
-            
-            {/* Contribution Heatmap */}
             <ContributionHeatmap />
           </div>
           
-          {/* Sidebar - Right */}
-          <div className="space-y-8">
-            {/* Skills & Languages */}
+          {/* Right Column - Skills & Community */}
+          <div className="xl:col-span-3 space-y-6">
             <SkillsLanguages />
-            
-            {/* Community Stats */}
             <CommunityStats />
           </div>
         </div>
       </div>
+      
+      {/* Edit Profile Modal */}
+      <EditProfileModal 
+        isOpen={isEditModalOpen} 
+        onClose={() => setIsEditModalOpen(false)} 
+      />
     </div>
   );
 };
