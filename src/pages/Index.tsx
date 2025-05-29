@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { ProfileHeader } from '../components/profile/ProfileHeader';
 import { StatsGrid } from '../components/profile/StatsGrid';
-import { LevelProgress } from '../components/profile/LevelProgress';
 import { TabbedSection } from '../components/profile/TabbedSection';
 import { AchievementsBadges } from '../components/profile/AchievementsBadges';
 import { SkillsLanguages } from '../components/profile/SkillsLanguages';
@@ -16,25 +15,24 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-[#0D0D0D] text-white font-sans">
       <div className="container mx-auto px-4 py-8 max-w-7xl">
-        {/* Three Column Layout */}
-        <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
+        {/* Three Column Responsive Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           
-          {/* Left Column - Identity & Quick Stats */}
-          <div className="xl:col-span-3 space-y-6">
+          {/* Left Column - User Identity & Quick Stats */}
+          <div className="lg:col-span-3 space-y-6">
             <ProfileHeader onEditClick={() => setIsEditModalOpen(true)} />
             <StatsGrid />
-            <LevelProgress />
           </div>
           
-          {/* Middle Column - Dynamic Content */}
-          <div className="xl:col-span-6 space-y-6">
-            <TabbedSection />
+          {/* Middle Column - Main Dynamic Content */}
+          <div className="lg:col-span-6 space-y-6">
             <AchievementsBadges />
             <ContributionHeatmap />
+            <TabbedSection />
           </div>
           
-          {/* Right Column - Skills & Community */}
-          <div className="xl:col-span-3 space-y-6">
+          {/* Right Column - Supplementary Info */}
+          <div className="lg:col-span-3 space-y-6">
             <SkillsLanguages />
             <CommunityStats />
           </div>
