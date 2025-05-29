@@ -10,7 +10,7 @@ const communityStats = [
 
 export const CommunityStats = () => {
   return (
-    <div className="bg-[#16181D] rounded-xl p-6 border border-gray-800">
+    <div className="bg-[#1A1A1A] rounded-xl p-6 border border-gray-800">
       <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
         <span>👥</span>
         Community Stats
@@ -20,7 +20,7 @@ export const CommunityStats = () => {
         {communityStats.map((stat, index) => (
           <div
             key={index}
-            className="group flex items-center justify-between p-3 bg-[#0E0F11] rounded-lg border border-gray-700 hover:border-[#00FFCB]/30 hover:shadow-lg hover:shadow-[#00FFCB]/10 transition-all duration-300 cursor-pointer"
+            className="group flex items-center justify-between p-3 bg-[#0D0D0D] rounded-lg border border-gray-700 hover:border-[#00FFA3]/30 hover:shadow-lg hover:shadow-[#00FFA3]/10 transition-all duration-300 cursor-pointer"
           >
             <div className="flex items-center gap-3">
               <span className="text-xl group-hover:scale-110 transition-transform duration-300">
@@ -29,10 +29,10 @@ export const CommunityStats = () => {
               <span className="text-[#A0A0A0] text-sm">{stat.label}</span>
             </div>
             <div className="text-right">
-              <div className="text-white font-bold group-hover:text-[#00FFCB] transition-colors duration-300">
+              <div className="text-white font-bold group-hover:text-[#00FFA3] transition-colors duration-300">
                 {stat.value}
               </div>
-              <div className="text-[#00FFCB] text-xs font-medium">
+              <div className="text-[#00FFA3] text-xs font-medium">
                 {stat.trend}
               </div>
             </div>

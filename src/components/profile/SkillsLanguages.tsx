@@ -23,9 +23,9 @@ const languages = ['JavaScript', 'Python', 'TypeScript', 'C++', 'Java', 'Rust', 
 
 export const SkillsLanguages = () => {
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
       {/* Skills */}
-      <div className="bg-[#16181D] rounded-xl p-6 border border-gray-800">
+      <div className="bg-[#1A1A1A] rounded-xl p-6 border border-gray-800">
         <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
           <span>🧠</span>
           Skills
@@ -33,7 +33,7 @@ export const SkillsLanguages = () => {
         
         {Object.entries(skillCategories).map(([category, skills]) => (
           <div key={category} className="mb-6 last:mb-0">
-            <h4 className="text-[#00FFCB] font-medium text-sm mb-3 uppercase tracking-wide">
+            <h4 className="text-[#00FFA3] font-medium text-sm mb-3 uppercase tracking-wide">
               {category}
             </h4>
             <div className="space-y-3">
@@ -43,12 +43,12 @@ export const SkillsLanguages = () => {
                     <span className="text-white text-sm">{skill.name}</span>
                     <span className="text-[#A0A0A0] text-xs">{skill.level}%</span>
                   </div>
-                  <div className="h-2 bg-[#0E0F11] rounded-full overflow-hidden">
+                  <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
                     <div 
-                      className="h-full bg-gradient-to-r from-[#00FFCB] to-[#29FFC6] rounded-full transition-all duration-1000 ease-out"
+                      className="h-full bg-gradient-to-r from-[#00FFA3] to-[#4DFFDF] rounded-full transition-all duration-1000 ease-out"
                       style={{ width: `${skill.level}%` }}
                     >
-                      <div className="h-full bg-gradient-to-r from-[#00FFCB] to-[#29FFC6] animate-pulse opacity-75"></div>
+                      <div className="h-full bg-gradient-to-r from-[#00FFA3] to-[#4DFFDF] animate-pulse opacity-75"></div>
                     </div>
                   </div>
                 </div>
@@ -59,7 +59,7 @@ export const SkillsLanguages = () => {
       </div>
       
       {/* Languages */}
-      <div className="bg-[#16181D] rounded-xl p-6 border border-gray-800">
+      <div className="bg-[#1A1A1A] rounded-xl p-6 border border-gray-800">
         <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
           <span>💻</span>
           Languages
@@ -69,7 +69,7 @@ export const SkillsLanguages = () => {
           {languages.map((language) => (
             <span
               key={language}
-              className="px-3 py-1 bg-[#00FFCB]/10 border border-[#00FFCB]/30 text-[#00FFCB] rounded-full text-sm font-medium hover:bg-[#00FFCB]/20 hover:scale-105 transition-all duration-300 cursor-pointer"
+              className="px-3 py-1 bg-[#00FFA3]/10 border border-[#00FFA3]/30 text-[#00FFA3] rounded-full text-sm font-medium hover:bg-[#00FFA3]/20 hover:scale-105 transition-all duration-300 cursor-pointer"
             >
               {language}
             </span>
